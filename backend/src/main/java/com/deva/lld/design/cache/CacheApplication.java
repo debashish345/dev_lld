@@ -1,15 +1,15 @@
-package lld.lrucache;
+package com.deva.lld.design.cache;
 
+import com.deva.lld.design.cache.exception.EmptyCacheException;
+import com.deva.lld.design.cache.exception.KeyNotFoundException;
 import com.deva.lld.design.cache.provider.def.Cache;
 import com.deva.lld.design.cache.provider.impl.CacheProvider;
 import com.deva.lld.design.cache.strategy.def.CacheStrategy;
 import com.deva.lld.design.cache.strategy.impl.LRUCacheStrategy;
-import lld.lrucache.exception.EmptyCacaheException;
-import lld.lrucache.exception.KeyNotFoundException;
 
 public class CacheApplication {
 
-    public static void main(String[] args) throws EmptyCacaheException, KeyNotFoundException {
+    public static void main(String[] args) throws EmptyCacheException, KeyNotFoundException {
         CacheStrategy<Integer, String> lruCacheStrategy = new LRUCacheStrategy<>(5);
         Cache<Integer, String> cache = new CacheProvider<>(lruCacheStrategy);
 

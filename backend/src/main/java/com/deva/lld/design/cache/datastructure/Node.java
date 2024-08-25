@@ -1,6 +1,6 @@
-package lld.lrucache.datastructure;
+package com.deva.lld.design.cache.datastructure;
 
-import lld.lrucache.exception.EmptyNodeException;
+import com.deva.lld.design.cache.exception.EmptyNodeException;
 
 import java.util.Optional;
 

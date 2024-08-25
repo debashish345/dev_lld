@@ -1,9 +1,9 @@
 package com.deva.lld.design.cache.provider.impl;
 
+import com.deva.lld.design.cache.exception.EmptyCacheException;
+import com.deva.lld.design.cache.exception.KeyNotFoundException;
 import com.deva.lld.design.cache.provider.def.Cache;
 import com.deva.lld.design.cache.strategy.def.CacheStrategy;
-import lld.lrucache.exception.EmptyCacaheException;
-import lld.lrucache.exception.KeyNotFoundException;
 
 public class CacheProvider<K, V> implements Cache<K, V> {
 
@@ -19,12 +19,12 @@ public class CacheProvider<K, V> implements Cache<K, V> {
     }
 
     @Override
-    public void remove(K key) throws EmptyCacaheException, KeyNotFoundException {
+    public void remove(K key) throws EmptyCacheException, KeyNotFoundException {
         this.cacheStrategy.remove(key);
     }
 
     @Override
-    public V get(K key) throws EmptyCacaheException, KeyNotFoundException {
+    public V get(K key) throws EmptyCacheException, KeyNotFoundException {
         return this.cacheStrategy.get(key);
     }
 

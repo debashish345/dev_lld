@@ -1,10 +1,10 @@
 package com.deva.lld.design.cache.strategy.impl;
 
+import com.deva.lld.design.cache.datastructure.DoublyLinkedList;
+import com.deva.lld.design.cache.datastructure.Node;
+import com.deva.lld.design.cache.exception.EmptyCacheException;
+import com.deva.lld.design.cache.exception.KeyNotFoundException;
 import com.deva.lld.design.cache.strategy.def.CacheStrategy;
-import lld.lrucache.datastructure.DoublyLinkedList;
-import lld.lrucache.datastructure.Node;
-import lld.lrucache.exception.EmptyCacaheException;
-import lld.lrucache.exception.KeyNotFoundException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,16 +32,16 @@ public class LRUCacheStrategy<K, V> implements CacheStrategy<K, V> {
     }
 
     @Override
-    public void remove(K key) throws EmptyCacaheException, KeyNotFoundException {
-        if (cacheMap.isEmpty()) throw new EmptyCacaheException("Cache is empty!");
+    public void remove(K key) throws EmptyCacheException, KeyNotFoundException {
+        if (cacheMap.isEmpty()) throw new EmptyCacheException("Cache is empty!");
         if (!containsKey(key)) throw new KeyNotFoundException(String.format("%s is not found!", key));
         Node<K, V> toBeRemoved = cacheMap.get(key);
         doublyLinkedList.removeNode(toBeRemoved);
     }
 
     @Override
-    public V get(K key) throws EmptyCacaheException, KeyNotFoundException {
-        if (cacheMap.isEmpty()) throw new EmptyCacaheException("Cache is empty!");
+    public V get(K key) throws EmptyCacheException, KeyNotFoundException {
+        if (cacheMap.isEmpty()) throw new EmptyCacheException("Cache is empty!");
         if (!containsKey(key)) throw new KeyNotFoundException(String.format("%s is not found!", key));
         Node<K, V> requestedNode = cacheMap.get(key);
         priortizeNode(requestedNode);

@@ -1,4 +1,4 @@
-package lld.lrucache.datastructure;
+package com.deva.lld.design.cache.datastructure;
 
 public class DoublyLinkedList<K, V> {
 
