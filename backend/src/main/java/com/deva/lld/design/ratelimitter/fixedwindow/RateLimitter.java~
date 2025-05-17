@@ -1,0 +1,4 @@
+package com.deva.lld.design.ratelimitter.fixedwindow;
+
+public interface RateLimitter {
+}

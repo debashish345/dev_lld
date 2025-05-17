@@ -1,0 +1,13 @@
+package com.deva.lld.design.ratelimitter.fixedwindow;
+
+import org.springframework.web.client.HttpClientErrorException;
+
+public class FixedWindowRateLimitter implements RateLimitter{
+
+    
+
+    @Override
+    public void access(String username) throws HttpClientErrorException.TooManyRequests {
+
+    }
+}
